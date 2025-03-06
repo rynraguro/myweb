@@ -1,3 +1,5 @@
+1. u
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +18,10 @@
             background-color: #4CAF50;
             overflow: hidden;
             padding: 10px;
+            position: fixed; /* Make the navbar fixed */
+            top: 0; /* Position it at the top */
+            width: 100%; /* Full width */
+            z-index: 1000; /* Ensure it is above other elements */
         }
         .navbar a {
             float: left;
@@ -31,37 +37,38 @@
         }
         .notification {
             position: relative;
-            display: inline-block; /* Added for notification bell */
+            display: inline-block;
         }
         .badge {
             position: absolute;
-            top: -5px; /* Adjusts the position of the badge */
-            right: -10px; /* Adjusts the position of the badge */
-            background-color: red; /* Badge color */
-            color: white; /* Badge text color */
-            border-radius: 50%; /* Makes the badge circular */
-            padding: 2px 5px; /* Padding for the badge */
-            font-size: 12px; /* Font size for the badge */
+            top: -5px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 5px;
+            font-size: 12px;
         }
         .dropdown-content {
-            display: none; /* Initially hide the dropdown */
-            position: absolute; /* Position it below the button */
-            background-color: white; /* Background color of the dropdown */
-            min-width: 160px; /* Minimum width of the dropdown */
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); /* Shadow for dropdown */
-            z-index: 1; /* Ensure it appears above other elements */
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            right: 0; /* Align the dropdown to the right */
         }
         .dropdown-content a {
-            color: black; /* Text color for dropdown items */
-            padding: 12px 16px; /* Padding for dropdown items */
-            text-decoration: none; /* Remove underline from links */
-            display: block; /* Make links block elements */
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
         }
         .dropdown-content a:hover {
-            background-color: #ddd; /* Change background on hover */
+            background-color: #ddd;
         }
         .show {
-            display: block; /* Show the dropdown when active */
+            display: block;
         }
         .container {
             max-width: 1400px;
@@ -136,7 +143,6 @@
             top: -10px;
             left: -10px;
         }
-        
     </style>
 </head>
 <body>
@@ -150,16 +156,15 @@
     <a href="#" title="Messages"><i class="fa fa-envelope"></i></a>
 
     <div class="notification">
-        <button class="button"  onclick="toggleDropdown()">
-        <i class="fa fa-bell"></i>
-        <span class="bagde">3</span>
+        <button class="button" onclick="toggleDropdown()">
+            <i class="fa fa-bell"></i>
+            <span class="badge">3</span>
         </button>
-    <div id="notificationDropdown" class="dropdown-content">
-        <a href="#">One new friend request</a>
-        <a href="#">Rose pangit posted on your wall</a>
-        <a href="#">Zie likes your post</a> 
-
-    </div>
+        <div id="notificationDropdown" class="dropdown-content">
+            <a href="#">One new friend request</a>
+            <a href="#">Rose pangit posted on your wall</a>
+            <a href="#">Zie likes your post</a>
+        </div>
     </div>
 </nav>
 
@@ -253,16 +258,13 @@
 
         <div class="card">
             <h5>Friend Request</h5>
-            <img src="c:\Users\rizam\Downloads\download (8).jpg" alt="Avatar" style="width:50%"><Br>
+            <img src="c:\Users\rizam\Downloads\download (8).jpg" alt="Avatar" style="width:50%"><br>
             <span>Jane Doe</span>
             <div class="w3-row w3-opacity">
-           
               <button class="button" style="background-color: green; margin-right: 5px;">Accept</button>
-            
-            
               <button class="button" style="background-color: red;">Decline</button>
+            </div>
         </div>
-      </Div>
 
         <div class="card">
             <h5>ADS</h5>
@@ -290,6 +292,24 @@
             }
         });
     });
+
+    // Notification dropdown functionality
+    function toggleDropdown() {
+        document.getElementById("notificationDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('.button')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
 </script>
 
 </body>
