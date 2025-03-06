@@ -1,7 +1,8 @@
-1. u
+2. love
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Custom Social Media Template</title>
     <meta charset="UTF-8">
@@ -9,20 +10,28 @@
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html, body, h1, h2, h3, h4, h5 {
+        html,
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
             font-family: "Open Sans", sans-serif;
             margin: 0;
             background-color: #f1f1f1;
         }
+
         .navbar {
             background-color: #4CAF50;
             overflow: hidden;
             padding: 10px;
-            position: fixed; /* Make the navbar fixed */
-            top: 0; /* Position it at the top */
-            width: 100%; /* Full width */
-            z-index: 1000; /* Ensure it is above other elements */
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
+
         .navbar a {
             float: left;
             display: block;
@@ -31,14 +40,30 @@
             padding: 14px 16px;
             text-decoration: none;
         }
+
         .navbar a:hover {
             background-color: #ddd;
             color: black;
         }
+
+        .navbar .profile {
+            float: right;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar .profile img {
+            border-radius: 50%;
+            height: 23px;
+            width: 23px;
+            margin-left: 10px;
+        }
+
         .notification {
             position: relative;
             display: inline-block;
         }
+
         .badge {
             position: absolute;
             top: -5px;
@@ -49,57 +74,68 @@
             padding: 2px 5px;
             font-size: 12px;
         }
+
         .dropdown-content {
             display: none;
             position: absolute;
             background-color: white;
             min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
             z-index: 1;
-            right: 0; /* Align the dropdown to the right */
+            right: 0;
         }
+
         .dropdown-content a {
             color: black;
             padding: 12px 16px;
             text-decoration: none;
             display: block;
         }
+
         .dropdown-content a:hover {
             background-color: #ddd;
         }
+
         .show {
             display: block;
         }
+
         .container {
             max-width: 1400px;
             margin: 80px auto;
             display: flex;
         }
+
         .col {
             padding: 20px;
             background-color: white;
             border-radius: 8px;
             margin: 10px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .col.left {
             flex: 1;
             min-width: 300px;
         }
+
         .col.middle {
             flex: 2;
         }
+
         .col.right {
             flex: 1;
             min-width: 200px;
         }
+
         .card {
             margin-bottom: 20px;
             padding: 20px;
             border-radius: 8px;
             background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
         .button {
             background-color: #4CAF50;
             color: rgb(249, 247, 247);
@@ -109,9 +145,11 @@
             cursor: pointer;
             margin-top: 10px;
         }
+
         .button:hover {
             background-color: #45a049;
         }
+
         .accordion {
             cursor: pointer;
             padding: 10px;
@@ -124,15 +162,18 @@
             background-color: #c3c3e2;
             margin: 5px 0;
         }
+
         .accordion:hover {
             background-color: #ddd;
         }
+
         .panel {
             display: none;
             padding: 0 18px;
             overflow: hidden;
             background-color: white;
         }
+
         .badge {
             background-color: rgb(76, 73, 79);
             border-radius: 10%;
@@ -145,172 +186,186 @@
         }
     </style>
 </head>
+
 <body>
 
-<!-- Navbar -->
-<nav class="navbar">
-    <a href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-    <a href="#"><i class="fa fa-home"></i> Logo</a>
-    <a href="#" title="News"><i class="fa fa-globe"></i></a>
-    <a href="#" title="Account Settings"><i class="fa fa-user"></i></a>
-    <a href="#" title="Messages"><i class="fa fa-envelope"></i></a>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+        <a href="#"><i class="fa fa-home"></i> Logo</a>
+        <a href="#" title="News"><i class="fa fa-globe"></i></a>
+        <a href="#" title="Account Settings"><i class="fa fa-user"></i></a>
+        <a href="#" title="Messages"><i class="fa fa-envelope"></i></a>
 
-    <div class="notification">
-        <button class="button" onclick="toggleDropdown()">
-            <i class="fa fa-bell"></i>
-            <span class="badge">3</span>
-        </button>
-        <div id="notificationDropdown" class="dropdown-content">
-            <a href="#">One new friend request</a>
-            <a href="#">Rose pangit posted on your wall</a>
-            <a href="#">Zie likes your post</a>
-        </div>
-    </div>
-</nav>
-
-<!-- Page Container -->
-<div class="container">
-    <div class="col left">
-        <div class="card">
-            <h4 class="center">My Profile</h4>
-            <p class="center"><img src="c:\Users\rizam\Downloads\download (8).jpg" class="circle" style="height:106px;width:106px" alt="Avatar"></p>
-            <hr>
-            <p><i class="fa fa-pencil fa-fw"></i> Designer, UI</p>
-            <p><i class="fa fa-home fa-fw"></i> London, UK</p>
-            <p><i class="fa fa-birthday-cake fa-fw"></i> April 1, 1988</p>
-        </div>
-
-        <!-- Accordion -->
-        <div class="card">
-            <button class="accordion">My Groups</button>
-            <div class="panel">
-                <p>Some text about groups..</p>
-            </div>
-            <button class="accordion">My Events</button>
-            <div class="panel">
-                <p>Some text about events..</p>
-            </div>
-            <button class="accordion">My Photos</button>
-            <div class="panel">
-                <p>Some photos..</p>
-                <img src="c:\users\rizam\OneDrive\Documents\onedrive\Pictures\download (6).jpg" style="width:100%" alt="">
-                <img src="/w3images/nature.jpg" style="width:100%" alt="">
-                <img src="/w3images/mountains.jpg" style="width:100%" alt="">
-                <img src="/w3images/forest.jpg" style="width:100%" alt="">
+        <div class="notification">
+            <button class="button" onclick="toggleDropdown()">
+                <i class="fa fa-bell"></i>
+                <span class="badge">3</span>
+            </button>
+            <div id="notificationDropdown" class="dropdown-content">
+                <a href="#">One new friend request</a>
+                <a href="#">Rose posted on your wall</a>
+                <a href="#">Zie likes your post</a>
             </div>
         </div>
-
-        <!-- Interests -->
-        <div class="card">
-            <h5>Interests</h5>
-            <p>
-                <span class="badge">News</span>
-                <span class="badge">W3Schools</span>
-                <span class="badge">Labels</span>
-                <span class="badge">Games</span>
-                <span class="badge">Friends</span>
-                <span class="badge">Food</span>
-                <span class="badge">Design</span>
-                <span class="badge">Art</span>
-                <span class="badge">Photos</span>
-            </p>
+        <div class="profile">
+            <a href="#" title="My Account">
+                <img src="path/to/profile-image.jpg" alt="Avatar">
+            </a>
         </div>
-    </div>
+    </nav>
 
-    <!-- Middle Column -->
-    <div class="col middle">
-        <div class="card">
-            <h6 class="center">Social Media Template</h6>
-            <p contenteditable="true" class="card" style="border: 1px solid #ccc; padding: 10px;">Status: Feeling Blue</p>
-            <button type="button" class="button"><i class="fa fa-pencil"></i> Post</button>
-        </div>
+    <!-- Page Container -->
+    <div class="container">
+        <div class="col left">
+            <div class="card">
+                <h4 class="center">My Profile</h4>
+                <p class="center"><img src="path/to/avatar.jpg" class="circle" style="height:106px;width:106px" alt="Avatar"></p>
+                <hr>
+                <p><i class="fa fa-pencil fa-fw"></i> Designer, UI</p>
+                <p><i class="fa fa-home fa-fw"></i> London, UK</p>
+                <p><i class="fa fa-birthday-cake fa-fw"></i> April 1, 1988</p>
+            </div>
 
-        <div class="card">
-            <img src="c:\Users\rizam\Downloads\Spiderman_3333.jpg" alt="Avatar" class="circle" style="width:50px; height:50px;">
-            <span class="right" style="float:right;">1 min</span>
-            <h4>John Doe</h4>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            <button type="button" class="button"><i class="fa fa-thumbs-up"></i> Like</button>
-            <button type="button" class="button"><i class="fa fa-comment"></i> Comment</button>
-        </div>
+            <!-- Accordion -->
+            <div class="card">
+                <button class="accordion">My Groups</button>
+                <div class="panel">
+                    <p>Some text about groups..</p>
+                </div>
+                <button class="accordion">My Events</button>
+                <div class="panel">
+                    <p>Some text about events..</p>
+                </div>
+                <button class="accordion">My Photos</button>
+                <div class="panel">
+                    <p>Some photos..</p>
+                    <img src="path/to/photo1.jpg" style="width:100%" alt="">
+                    <img src="path/to/photo2.jpg" style="width:100%" alt="">
+                    <img src="path/to/photo3.jpg" style="width:100%" alt="">
+                    <img src="path/to/photo4.jpg" style="width:100%" alt="">
+                </div>
+            </div>
 
-        <div class="card">
-            <img src="/w3images/avatar5.png" alt="Avatar" class="circle" style="width:60px">
-            <span class="right" style="float:right;">16 min</span>
-            <h4>Jane Doe</h4>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-            <button type="button" class="button"><i class="fa fa-thumbs-up"></i> Like</button>
-            <button type="button" class="button"><i class="fa fa-comment"></i> Comment</button>
-        </div>
-    </div>
-
-    <!-- Right Column -->
-    <div class="col right">
-        <div class="card">
-            <h5>Upcoming Events:</h5>
-            <img src="c:\Users\rizam\Downloads\download (7).jpg" alt="Forest" style="width:100%;">
-            <p><strong>Holiday</strong></p>
-            <p>Friday 15:00</p>
-            <button class="button">Info</button>
-        </div>
-
-        <div class="card">
-            <h5>Friend Request</h5>
-            <img src="c:\Users\rizam\Downloads\download (8).jpg" alt="Avatar" style="width:50%"><br>
-            <span>Jane Doe</span>
-            <div class="w3-row w3-opacity">
-              <button class="button" style="background-color: green; margin-right: 5px;">Accept</button>
-              <button class="button" style="background-color: red;">Decline</button>
+            <!-- Interests -->
+            <div class="card">
+                <h5>Interests</h5>
+                <p>
+                    <span class="badge">News</span>
+                    <span class="badge">W3Schools</span>
+                    <span class="badge">Labels</span>
+                    <span class="badge">Games</span>
+                    <span class="badge">Friends</span>
+                    <span class="badge">Food</span>
+                    <span class="badge">Design</span>
+                    <span class="badge">Art</span>
+                    <span class="badge">Photos</span>
+                </p>
             </div>
         </div>
 
-        <div class="card">
-            <h5>ADS</h5>
+        <!-- Middle Column -->
+        <div class="col middle">
+            <div class="card">
+                <h6 class="center">Social Media Template</h6>
+                <p contenteditable="true" class="card" style="border: 1px solid #ccc; padding: 10px;">Status: Feeling Blue
+                </p>
+                <button type="button" class="button"><i class="fa fa-pencil"></i> Post</button>
+            </div>
+
+            <div class="card">
+                <img src="path/to/avatar.jpg" alt="Avatar" class="circle" style="width:50px; height:50px;">
+                <span class="right" style="float:right;">1 min</span>
+                <h4>John Doe</h4>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button type="button" class="button"><i class="fa fa-thumbs-up"></i> Like</button>
+                <button type="button" class="button"><i class="fa fa-comment"></i> Comment</button>
+            </div>
+
+            <div class="card">
+                <img src="path/to/avatar.jpg" alt="Avatar" class="circle" style="width:60px">
+                <span class="right" style="float:right;">16 min</span>
+                <h4>Jane Doe</h4>
+                <hr>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button type="button" class="button"><i class="fa fa-thumbs-up"></i> Like</button>
+                <button type="button" class="button"><i class="fa fa-comment"></i> Comment</button>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col right">
+            <div class="card">
+                <h5>Upcoming Events:</h5>
+                <img src="path/to/event.jpg" alt="Event" style="width:100%;">
+                <p><strong>Holiday</strong></p>
+                <p>Friday 15:00</p>
+                <button class="button">Info</button>
+            </div>
+
+            <div class="card">
+                <h5>Friend Request</h5>
+                <img src="path/to/friend-request.jpg" alt="Avatar" style="width:50%"><br>
+                <span>Jane Doe</span>
+                <div class="w3-row w3-opacity">
+                    <button class="button" style="background-color: green; margin-right: 5px;">Accept</button>
+                    <button class="button" style="background-color: red;">Decline</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h5>ADS</h5>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer style="background-color: #4CAF50; color: rgb(0, 0, 0); text-align: left; padding: 16px;">
-    <h5>Footer</h5>
-    <p>Powered by Custom Template</p>
-</footer>
+    <!-- Footer -->
+    <footer style="background-color: #4CAF50; color: rgb(0, 0, 0); text-align: left; padding: 16px;">
+        <h5>Footer</h5>
+        <p>Powered by Custom Template</p>
+    </footer>
 
-<script>
-    // Accordion functionality
-    const accordions = document.querySelectorAll('.accordion');
-    accordions.forEach(accordion => {
-        accordion.addEventListener('click', function() {
-            this.classList.toggle('active');
-            const panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
+    <script>
+        // Accordion functionality
+        const accordions = document.querySelectorAll('.accordion');
+        accordions.forEach(accordion => {
+            accordion.addEventListener('click', function () {
+                this.classList.toggle('active');
+                const panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
         });
-    });
 
-    // Notification dropdown functionality
-    function toggleDropdown() {
-        document.getElementById("notificationDropdown").classList.toggle("show");
-    }
+        // Notification dropdown functionality
+        function toggleDropdown() {
+            document.getElementById("notificationDropdown").classList.toggle("show");
+        }
 
-    // Close the dropdown if the user clicks outside of it
-    window.onclick = function(event) {
-        if (!event.target.matches('.button')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            for (var i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.button')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
                 }
             }
         }
-    }
-</script>
+    </script>
 
 </body>
+
 </html>
+
+
+
+
+
+
