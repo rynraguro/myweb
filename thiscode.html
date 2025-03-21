@@ -1,371 +1,601 @@
-2. love
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <title>Custom Social Media Template</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redesigned W3.CSS Template</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        html,
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5 {
+        html, body, h1, h2, h3, h4, h5 {
             font-family: "Open Sans", sans-serif;
-            margin: 0;
-            background-color: #f1f1f1;
         }
-
-        .navbar {
-            background-color: #4CAF50;
-            overflow: hidden;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
+        .w3-theme-d4 {
+            background-color: #333 !important;
         }
-
-        .navbar a {
-            float: left;
-            display: block;
-            color: rgb(244, 244, 244);
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+        .w3-theme-d1 {
+            background-color: #444 !important;
         }
-
-        .navbar a:hover {
-            background-color: #ddd;
-            color: black;
+        .w3-theme-d2 {
+            background-color: #555 !important;
         }
-
-        .navbar .profile {
-            float: right;
-            display: flex;
-            align-items: center;
+        .w3-button-black {
+            background-color: #000 !important;
+            color: #fff !important;
         }
-
-        .navbar .profile img {
-            border-radius: 50%;
-            height: 23px;
-            width: 23px;
-            margin-left: 10px;
+        .w3-button-notification {
+            background-color: transparent !important;
+            color: #fff !important;
         }
-
-        .notification {
-            position: relative;
-            display: inline-block;
+        .w3-badge-red {
+            background-color: red !important;
+            color: #fff !important;
         }
-
-        .badge {
-            position: absolute;
-            top: -5px;
-            right: -10px;
-            background-color: red;
-            color: white;
-            border-radius: 50%;
-            padding: 2px 5px;
-            font-size: 12px;
+        .friend-request-buttons .w3-button {
+            width: 45%;
+            margin: 2px 2.5%;
         }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            z-index: 1;
-            right: 0;
+        .w3-button-info {
+            background-color: #000 !important;
+            color: #fff !important;
         }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
+        .w3-bar-item.w3-button {
+            font-size: 18px;
         }
-
-        .dropdown-content a:hover {
-            background-color: #ddd;
-        }
-
-        .show {
-            display: block;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 80px auto;
-            display: flex;
-        }
-
-        .col {
-            padding: 20px;
-            background-color: white;
-            border-radius: 8px;
-            margin: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .col.left {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .col.middle {
-            flex: 2;
-        }
-
-        .col.right {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .card {
-            margin-bottom: 20px;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .button {
-            background-color: #4CAF50;
-            color: rgb(249, 247, 247);
-            padding: 10px 15px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        .button:hover {
-            background-color: #45a049;
-        }
-
-        .accordion {
+        .friend-list-item {
             cursor: pointer;
             padding: 10px;
-            text-align: left;
-            outline: none;
-            border: none;
-            transition: background-color 0.3s;
-            width: 100%;
-            border-radius: 5px;
-            background-color: #c3c3e2;
             margin: 5px 0;
         }
-
-        .accordion:hover {
-            background-color: #ddd;
+        .friend-list-item.active {
+            background-color: #666 !important;
+            color: #fff !important;
         }
-
-        .panel {
+        .avatar {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+        }
+        .accordion-section .w3-container {
             display: none;
-            padding: 0 18px;
-            overflow: hidden;
-            background-color: white;
         }
-
-        .badge {
-            background-color: rgb(76, 73, 79);
-            border-radius: 10%;
-            padding: 2px 5px;
-            color: white;
-            font-size: 12px;
-            position: relative;
-            top: -10px;
-            left: -10px;
+        .accordion-section:hover .w3-container {
+            display: block;
+        }
+        /* Ensure the main content is always visible on smaller screens */
+        @media (max-width: 600px) {
+            .w3-col.m7 {
+                width: 100%;
+                order: 2;
+            }
+            .w3-col.m3, .w3-col.m2 {
+                display: none;
+            }
         }
     </style>
 </head>
+<body class="w3-theme-l5">
 
-<body>
+<!-- Custom CSS for Notification Button -->
+<style>
+    .notification-btn {
+      position: relative;
+      display: inline-block;
+    }
+    .notification-btn .w3-badge {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      /* Adjust these values as needed for a closer fit */
+    }
+  </style>
+  
+  <!-- Navbar -->
+  <header class="w3-top">
+      <nav class="w3-bar w3-theme-d4 w3-left-align w3-large">
+          <button class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-light-grey w3-large w3-theme-d4" onclick="openNav()">
+              <i class="fa fa-bars"></i>
+          </button>
+          <a href="#" class="w3-bar-item w3-button w3-padding-large">
+              <i class="fa fa-home w3-margin-right"></i>Logo
+          </a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-light-grey" title="News">
+              <i class="fa fa-globe"></i>
+          </a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-light-grey" title="Account Settings">
+              <i class="fa fa-user"></i>
+          </a>
+          <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-light-grey" title="Messages">
+              <i class="fa fa-envelope"></i>
+          </a>
+          <div class="w3-dropdown-hover w3-hide-small">
+              <button class="w3-button notification-btn w3-button-notification w3-padding-large" title="Notifications">
+                  <i class="fa fa-bell"></i>
+                  <span class="w3-badge w3-small w3-badge-red">3</span>
+              </button>
+              <div class="w3-dropdown-content w3-card-4 w3-bar-block" style="width:300px">
+                  <a href="#" class="w3-bar-item w3-button">One new friend request</a>
+                  <a href="#" class="w3-bar-item w3-button">Kezia posted on your wall</a>
+                  <a href="#" class="w3-bar-item w3-button">Rose likes your post</a>
+              </div>
+          </div>
+          <!-- Search Form -->
+          <form class="w3-bar-item w3-right" action="/search" method="GET">
+              <input class="w3-input w3-bar-item w3-border" type="text" placeholder="Search..." name="q" style="width: 200px;">
+              <button type="submit" class="w3-button w3-bar-item w3-theme-d4">
+                  <i class="fa fa-search"></i>
+              </button>
+          </form>
+      </nav>
+  </header>
+  
 
-    <!-- Navbar -->
-    <nav class="navbar">
-        <a href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-        <a href="#"><i class="fa fa-home"></i> Logo</a>
-        <a href="#" title="News"><i class="fa fa-globe"></i></a>
-        <a href="#" title="Account Settings"><i class="fa fa-user"></i></a>
-        <a href="#" title="Messages"><i class="fa fa-envelope"></i></a>
+<!-- Navbar on small screens -->
+<nav id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">My Profile</a>
+</nav>
 
-        <div class="notification">
-            <button class="button" onclick="toggleDropdown()">
-                <i class="fa fa-bell"></i>
-                <span class="badge">3</span>
-            </button>
-            <div id="notificationDropdown" class="dropdown-content">
-                <a href="#">One new friend request</a>
-                <a href="#">Rose posted on your wall</a>
-                <a href="#">Zie likes your post</a>
-            </div>
-        </div>
-        <div class="profile">
-            <a href="#" title="My Account">
-                <img src="path/to/profile-image.jpg" alt="Avatar">
-            </a>
-        </div>
-    </nav>
-
-    <!-- Page Container -->
-    <div class="container">
-        <div class="col left">
-            <div class="card">
-                <h4 class="center">My Profile</h4>
-                <p class="center"><img src="path/to/avatar.jpg" class="circle" style="height:106px;width:106px" alt="Avatar"></p>
-                <hr>
-                <p><i class="fa fa-pencil fa-fw"></i> Designer, UI</p>
-                <p><i class="fa fa-home fa-fw"></i> London, UK</p>
-                <p><i class="fa fa-birthday-cake fa-fw"></i> April 1, 1988</p>
-            </div>
-
+<!-- Page Container -->
+<main class="w3-container w3-content" style="max-width:1400px;margin-top:80px">    
+    <!-- The Grid -->
+    <div class="w3-row">
+        <!-- Left Column -->
+        <aside class="w3-col m3">
+            <!-- Profile -->
+            <section class="w3-card w3-round w3-white">
+                <div class="w3-container">
+                    <h4 class="w3-center">My Profile</h4>
+                    <p class="w3-center"><img src="images/cutie.jpg" class="w3-circle avatar" alt="Avatar"></p>
+                    <hr>
+                    <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Tokyo, Japan</p>
+                    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> June 21, 2003</p>
+                </div>
+            </section>
+            <br>
+            
             <!-- Accordion -->
-            <div class="card">
-                <button class="accordion">My Groups</button>
-                <div class="panel">
-                    <p>Some text about groups..</p>
+            <section class="w3-card w3-round w3-white">
+                <!-- My Groups -->
+                <div class="accordion-section">
+                    <button class="w3-button w3-block w3-theme-l1 w3-left-align w3-padding-large">
+                        <i class="fa fa-circle-o-notch fa-fw w3-margin-right"></i> My Groups
+                    </button>
+                    <div class="w3-container w3-padding">
+                        <p>Some text..</p>
+                    </div>
                 </div>
-                <button class="accordion">My Events</button>
-                <div class="panel">
-                    <p>Some text about events..</p>
+                
+                <!-- My Events -->
+                <div class="accordion-section">
+                    <button class="w3-button w3-block w3-theme-l1 w3-left-align w3-padding-large">
+                        <i class="fa fa-calendar-check-o fa-fw w3-margin-right"></i> My Events
+                    </button>
+                    <div class="w3-container w3-padding">
+                        <p>Some other text..</p>
+                    </div>
                 </div>
-                <button class="accordion">My Photos</button>
-                <div class="panel">
-                    <p>Some photos..</p>
-                    <img src="path/to/photo1.jpg" style="width:100%" alt="">
-                    <img src="path/to/photo2.jpg" style="width:100%" alt="">
-                    <img src="path/to/photo3.jpg" style="width:100%" alt="">
-                    <img src="path/to/photo4.jpg" style="width:100%" alt="">
+                
+                <!-- My Photos -->
+                <div class="accordion-section">
+                    <button class="w3-button w3-block w3-theme-l1 w3-left-align w3-padding-large">
+                        <i class="fa fa-users fa-fw w3-margin-right"></i> My Photos
+                    </button>
+                    <div class="w3-container w3-padding">
+                        <div class="w3-row-padding">
+                            <br>
+                            <div class="w3-half">
+                                <img src="images/reading.jpg" style="width:100%; border-radius: 8px;" class="w3-margin-bottom" alt="reading">
+                            </div>
+                            <div class="w3-half">
+                                <img src="images/room.jpg" style="width:100%; border-radius: 8px;" class="w3-margin-bottom" alt="room">
+                            </div>
+                            <div class="w3-half">
+                                <img src="images/Audi RS7.jpg" style="width:100%; border-radius: 8px;" class="w3-margin-bottom" alt="car">
+                            </div>
+                            <div class="w3-half">
+                                <img src="images/flowers.jpg" style="width:100%; border-radius: 8px;" class="w3-margin-bottom" alt="flowers">
+                            </div>
+                            <div class="w3-half">
+                                <img src="images/manifest.jpg" style="width:100%; border-radius: 8px;" class="w3-margin-bottom" alt="card">
+                            </div>
+                            <div class="w3-half">
+                                <img src="images/nature.jpg" style="width:100%; border-radius: 8px;" class="w3-margin-bottom" alt="nature">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Interests -->
-            <div class="card">
-                <h5>Interests</h5>
-                <p>
-                    <span class="badge">News</span>
-                    <span class="badge">W3Schools</span>
-                    <span class="badge">Labels</span>
-                    <span class="badge">Games</span>
-                    <span class="badge">Friends</span>
-                    <span class="badge">Food</span>
-                    <span class="badge">Design</span>
-                    <span class="badge">Art</span>
-                    <span class="badge">Photos</span>
-                </p>
-            </div>
-        </div>
-
-        <!-- Middle Column -->
-        <div class="col middle">
-            <div class="card">
-                <h6 class="center">Social Media Template</h6>
-                <p contenteditable="true" class="card" style="border: 1px solid #ccc; padding: 10px;">Status: Feeling Blue
-                </p>
-                <button type="button" class="button"><i class="fa fa-pencil"></i> Post</button>
-            </div>
-
-            <div class="card">
-                <img src="path/to/avatar.jpg" alt="Avatar" class="circle" style="width:50px; height:50px;">
-                <span class="right" style="float:right;">1 min</span>
-                <h4>John Doe</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <button type="button" class="button"><i class="fa fa-thumbs-up"></i> Like</button>
-                <button type="button" class="button"><i class="fa fa-comment"></i> Comment</button>
-            </div>
-
-            <div class="card">
-                <img src="path/to/avatar.jpg" alt="Avatar" class="circle" style="width:60px">
-                <span class="right" style="float:right;">16 min</span>
-                <h4>Jane Doe</h4>
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                <button type="button" class="button"><i class="fa fa-thumbs-up"></i> Like</button>
-                <button type="button" class="button"><i class="fa fa-comment"></i> Comment</button>
-            </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="col right">
-            <div class="card">
-                <h5>Upcoming Events:</h5>
-                <img src="path/to/event.jpg" alt="Event" style="width:100%;">
-                <p><strong>Holiday</strong></p>
-                <p>Friday 15:00</p>
-                <button class="button">Info</button>
-            </div>
-
-            <div class="card">
-                <h5>Friend Request</h5>
-                <img src="path/to/friend-request.jpg" alt="Avatar" style="width:50%"><br>
-                <span>Jane Doe</span>
-                <div class="w3-row w3-opacity">
-                    <button class="button" style="background-color: green; margin-right: 5px;">Accept</button>
-                    <button class="button" style="background-color: red;">Decline</button>
+            </section>
+            <br>
+            
+            
+            <!-- Interests --> 
+            <section class="w3-card w3-round w3-white w3-hide-small">
+                <div class="w3-container">
+                    <p>Interests</p>
+                    <p>
+                        <span class="w3-tag w3-small w3-theme-d5">News</span>
+                        <span class="w3-tag w3-small w3-theme-d4">W3Schools</span>
+                        <span class="w3-tag w3-small w3-theme-d3">Labels</span>
+                        <span class="w3-tag w3-small w3-theme-d2">Games</span>
+                        <span class="w3-tag w3-small w3-theme-d1">Friends</span>
+                        <span class="w3-tag w3-small w3-theme">Games</span>
+                        <span class="w3-tag w3-small w3-theme-l1">Friends</span>
+                        <span class="w3-tag w3-small w3-theme-l2">Food</span>
+                        <span class="w3-tag w3-small w3-theme-l3">Design</span>
+                        <span class="w3-tag w3-small w3-theme-l4">Art</span>
+                        <span class="w3-tag w3-small w3-theme-l5">Photos</span>
+                    </p>
                 </div>
-            </div>
+            </section>
+            <br>
+            
+            <!-- Alert Box -->
+            <div class="notification-card">
+                <p><strong>Heads up!</strong></p>
+                <p>Your profile has gained attention. Want to see who viewed it?</p>
+                <button class="see-who-btn">See Who</button>
+              </div>
+              
+              <style>
+                .notification-card {
+                  background-color: #ffffff;
+                  border: 1px solid #e0e0e0;
+                  padding: 20px;
+                  border-radius: 12px;
+                  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                  text-align: center;
+                  max-width: 300px;
+                  margin: 20px auto;
+                  font-family: Arial, sans-serif;
+                }
+              
+                .notification-card p {
+                  margin: 10px 0;
+                  color: #333;
+                }
+              
+                .see-who-btn {
+                  margin-top: 10px;
+                  padding: 10px 20px;
+                  background-color: #000;
+                  color: white;
+                  border: none;
+                  border-radius: 20px;
+                  cursor: pointer;
+                  font-size: 14px;
+                  transition: all 0.3s ease;
+                }
+              
+                .see-who-btn:active {
+                  background-color: #e0e0e0;
+                  color: #000;
+                }
+              </style>
+              
+              
+              <style>
+                .see-who-btn:active {
+                  background-color: #8d8f8d; /* Darker green when clicked */
+                }
+              </style>
+              
+              
+              <style>
+                a:hover div {
+                  transform: scale(1.05);
+                }
+              </style>
+              
+            
+        <!-- End Left Column -->
+        </aside>
+        
+      <style>
 
-            <div class="card">
-                <h5>ADS</h5>
+.instapost {
+  background-color: white;
+  border: 1px solid #dbdbdb;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.instapost-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.instapost-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.instapost-user {
+  font-weight: bold;
+}
+
+.instapost-time {
+  margin-left: auto;
+  font-size: 12px;
+  color: gray;
+}
+
+.instapost-image {
+  width: 100%;
+  height: auto;
+}
+
+.instapost-caption {
+  padding: 10px;
+}
+
+.instapost-buttons {
+  display: flex;
+  gap: 10px;
+  padding: 10px;
+}
+
+.instapost-buttons button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.instapost-buttons button:hover {
+  opacity: 0.7;
+}
+
+.instapost hr {
+  margin: 0;
+}
+</style>
+
+<section class="w3-col m7">
+    <!-- Status Update Box -->
+    <div class="w3-row-padding">
+        <div class="w3-col m12">
+            <div class="w3-card w3-round w3-white w3-padding">
+                <!-- Row for Avatar and Input -->
+                <div class="w3-row" style="display: flex; align-items: center;">
+                    <!-- Avatar (outside the input box) -->
+                    <div style="margin-right: 10px;">
+                        <img src="images/cutie.jpg" alt="Avatar" style="width:50px; height:50px; border-radius:50%; object-fit:cover;">
+                    </div>
+                    <!-- Input Box -->
+                    <div style="flex: 1;">
+                        <input type="text" class="w3-input w3-border w3-round" placeholder="What's on your mind?" style="padding: 10px; border: none; background-color: #f0f2f5;">
+                    </div>
+                </div>
+                <!-- Buttons -->
+                <div class="w3-row-padding w3-margin-top" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+                    <!-- Live Video Button -->
+                    <button class="w3-button w3-black w3-round" style="width:45%; margin:4px 0;">
+                        <i class="fa fa-video-camera" style="color:red;"></i> Live video
+                    </button>
+                    <!-- Photo/Video Button -->
+                    <button class="w3-button w3-black w3-round" style="width:45%; margin:4px 0;">
+                        <i class="fa fa-photo" style="color:green;"></i> Photo/video
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer style="background-color: #4CAF50; color: rgb(0, 0, 0); text-align: left; padding: 16px;">
-        <h5>Footer</h5>
-        <p>Powered by Custom Template</p>
-    </footer>
+    <!-- Post 1 -->
+    <article class="w3-container w3-card w3-white w3-round w3-margin w3-padding">
+        <div class="w3-row" style="display: flex; align-items: center;">
+            <img src="images/Spiderman.jpg" alt="Avatar" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="w3-left w3-margin-right">
+            <div class="w3-rest">
+                <h4>Dave Tan</h4>
+                <span class="w3-opacity">1 min ago</span>
+            </div>
+        </div>
+        <hr>
+        <p>“Life isn't about finding yourself. Life is about creating yourself.”</p>
+        <div class="w3-row-padding">
+            <div class="w3-half">
+                <img src="images/sunset.jpg" style="width:100%; border-radius:8px;" alt="Sunset" class="w3-margin-bottom">
+            </div>
+            <div class="w3-half">
+                <img src="images/sea.jpg" style="width:100%; border-radius:8px;" alt="Sea" class="w3-margin-bottom">
+            </div>
+        </div>
+        <hr>
+        <button type="button" class="w3-button w3-black w3-border w3-round">
+            <i class="fa fa-thumbs-up"></i> Like
+        </button> 
+        <button type="button" class="w3-button w3-black w3-border w3-round">
+            <i class="fa fa-comment"></i> Comment
+        </button>
+    </article>
 
-    <script>
-        // Accordion functionality
-        const accordions = document.querySelectorAll('.accordion');
-        accordions.forEach(accordion => {
-            accordion.addEventListener('click', function () {
-                this.classList.toggle('active');
-                const panel = this.nextElementSibling;
-                if (panel.style.display === "block") {
-                    panel.style.display = "none";
+    <!-- Post 2 -->
+    <article class="w3-container w3-card w3-white w3-round w3-margin w3-padding">
+        <div class="w3-row" style="display: flex; align-items: center;">
+            <img src="images/cool.jpg" alt="Avatar" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="w3-left w3-margin-right">
+            <div class="w3-rest">
+                <h4>Sicnarf Yohac</h4>
+                <span class="w3-opacity">16 min ago</span>
+            </div>
+        </div>
+        <hr>
+        <p>"You either die single or live long enough to see yourself become the ‘it’s complicated’ status."</p>
+        <hr>
+        <button type="button" class="w3-button w3-black w3-border w3-round">
+            <i class="fa fa-thumbs-up"></i> Like
+        </button> 
+        <button type="button" class="w3-button w3-black w3-border w3-round">
+            <i class="fa fa-comment"></i> Comment
+        </button>
+    </article>
+
+    <!-- Post 3 -->
+    <article class="w3-container w3-card w3-white w3-round w3-margin w3-padding">
+        <div class="w3-row" style="display: flex; align-items: center;">
+            <img src="images/angry cat.jpg" alt="Avatar" style="width:50px; height:50px; border-radius:50%; object-fit:cover;" class="w3-left w3-margin-right">
+            <div class="w3-rest">
+                <h4>Rose Nieza</h4>
+                <span class="w3-opacity">32 min ago</span>
+            </div>
+        </div>
+        <hr>
+        <p>💔 "Love is like WiFi—strong at first, then suddenly unstable."</p>
+        <img src="images/交.jpg" style="width:100%; border-radius:8px;" alt="Post Image" class="w3-margin-bottom">
+        <p>"Relationship status: Waiting for my crush to notice my existence."</p>
+        <hr>
+        <button type="button" class="w3-button w3-black w3-border w3-round">
+            <i class="fa fa-thumbs-up"></i> Like
+        </button> 
+        <button type="button" class="w3-button w3-black w3-border w3-round">
+            <i class="fa fa-comment"></i> Comment
+        </button>
+    </article>
+</section>
+
+
+        <!-- Right Column -->
+        <aside class="w3-col m2">
+            <section class="w3-card w3-round w3-white w3-center">
+                <div class="w3-container">
+                    <p>Upcoming Events:</p>
+                    <img src="images/International Cat Day.jpg" alt="Forest" style="width:100%;">
+                    <p><strong>Holiday</strong></p>
+                    <p>Friday 15:00</p>
+                    <p><button class="w3-button w3-button-info w3-block w3-theme-l4">Info</button></p>
+                </div>
+            </section>
+            <br>
+            
+            <section class="w3-card w3-round w3-white w3-center" style="padding: 10px;">
+                <div class="w3-container">
+                    <p style="margin-top: 10px; font-weight: bold;">Friend Request</p>
+            
+                    <!-- Avatar Image -->
+                    <img src="images/caticat.jpg" alt="Avatar" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ccc; margin-top: 10px;">
+            
+                    <!-- Friend Name -->
+                    <p style="margin: 10px 0 5px 0; font-weight: 500;">Ziexy</p>
+            
+                    <!-- Buttons -->
+                    <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                        <button class="w3-button w3-green w3-round w3-small" style="padding: 5px 12px; min-width: 70px;">Accept</button>
+                        <button class="w3-button w3-red w3-round w3-small" style="padding: 5px 12px; min-width: 70px;">Decline</button>
+                    </div>
+                </div>
+            </section>
+            <br>
+            
+            <section class="w3-card w3-round w3-center" style="background-color: #000; padding: 15px; border-radius: 12px;">
+                <div class="w3-container">
+                  <h3 style="color: white; text-align: center; margin-bottom: 20px;">Friends</h3>
+                  
+                  <!-- Always visible friends -->
+                  <div class="friend-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="images/cool.jpg" alt="Sicnarf Yohac" style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #555;">
+                    <span style="color: white;">Sicnarf Yohac</span>
+                  </div>
+                  
+                  <div class="friend-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="images/meowror.jpg" alt="Coney Llanasa Baquiro" style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #555;">
+                    <span style="color: white;">Coney Baquiro</span>
+                  </div>
+                  
+                  <div class="friend-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="images/Tahmin.jpg" alt="Alyssa Mae Lorzano" style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #555;">
+                    <span style="color: white;">Alyssa Lorzano</span>
+                  </div>
+                  
+                  <!-- Hidden additional friends -->
+                  <div id="moreFriends" style="display: none;">
+                    <div class="friend-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                      <img src="images/Pp.jpg" alt="Dave Smith" style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #555;">
+                      <span style="color: white;">Kezia Alalid</span>
+                    </div>
+                    <div class="friend-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                      <img src="images/angry cat.jpg" alt="Rose Nieza" style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #555;">
+                      <span style="color: white;">Rose Nieza</span>
+                    </div>
+                    <div class="friend-item" style="display: flex; align-items: center; margin-bottom: 15px;">
+                      <img src="images/longhair.jpg" alt="Kevin Lee" style="width:45px; height:45px; border-radius:50%; object-fit:cover; margin-right:12px; border:2px solid #555;">
+                      <span style="color: white;">Kevin Lee</span>
+                    </div>
+                  </div>
+                  
+                  <!-- Show More Button -->
+                  <button onclick="toggleFriends()" class="w3-button w3-black w3-round" style="margin-top: 10px;">Show More</button>
+                </div>
+              </section>
+              
+              <script>
+              function toggleFriends() {
+                var more = document.getElementById("moreFriends");
+                var btn = document.querySelector("button[onclick='toggleFriends()']");
+                if(more.style.display === "none") {
+                  more.style.display = "block";
+                  btn.textContent = "Show Less";
                 } else {
-                    panel.style.display = "block";
+                  more.style.display = "none";
+                  btn.textContent = "Show More";
                 }
-            });
-        });
+              }
+              </script>
+              
+        <!-- End Right Column -->
+        </aside>
+    <!-- End Grid -->
+    </div>
+<!-- End Page Container -->
+</main>
+<br>
 
-        // Notification dropdown functionality
-        function toggleDropdown() {
-            document.getElementById("notificationDropdown").classList.toggle("show");
+<footer class="w3-container" style="background-color: #333; color: #fff; padding: 20px 0;">
+    <div class="w3-content" style="max-width: 1200px; margin: auto; text-align: center;">
+      <h5 style="margin: 0; font-size: 18px;">Ryn</h5>
+      <p style="margin: 10px 0;">© 2025 Ryn. All rights reserved.</p>
+      <p style="margin: 10px 0;">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" style="color: #f2f2f2; text-decoration: none;">w3.css</a></p>
+      <div style="margin-top: 15px;">
+        <a href="#" style="margin: 0 10px; color: #f2f2f2; text-decoration: none;">Home</a>
+        <a href="#" style="margin: 0 10px; color: #f2f2f2; text-decoration: none;">About</a>
+        <a href="#" style="margin: 0 10px; color: #f2f2f2; text-decoration: none;">Contact</a>
+      </div>
+    </div>
+  </footer>
+  
+<script>
+    // Accordion
+    function toggleAccordion(id) {
+        var x = document.getElementById(id);
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+            x.previousElementSibling.className += " w3-theme-d1";
+        } else { 
+            x.className = x.className.replace("w3-show", "");
+            x.previousElementSibling.className = x.previousElementSibling.className.replace(" w3-theme-d1", "");
         }
-
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.button')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
+    }
+    
+    // Used to toggle the menu on smaller screens when clicking on the menu button
+    function openNav() {
+        var x = document.getElementById("navDemo");
+        if (x.className.indexOf("w3-show") == -1) {
+            x.className += " w3-show";
+        } else { 
+            x.className = x.className.replace(" w3-show", "");
         }
-    </script>
+    }
+</script>
 
 </body>
-
 </html>
-
-
-
-
-
-
